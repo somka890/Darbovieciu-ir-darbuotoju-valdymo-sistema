@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Ištrinti darbovietę</h2>
+
+  {% if klaida %}
+    <p style="color: red;">{{ klaida }}</p>
+    <a href="{{ url_for("routes.darbovietes") }}">Grįžti atgal</a>
+  {% else %}
+    <p>Ar tikrai nori ištrinti darbovietę <strong>{{ darboviete.pavadinimas }}</strong>?</p>
+
+    <form method="POST">
+      <button type="submit">Taip, ištrinti</button>
+      <a href="{{ url_for("routes.darbovietes") }}">Atšaukti</a>
+    </form>
+  {% endif %}
+{% endblock %}

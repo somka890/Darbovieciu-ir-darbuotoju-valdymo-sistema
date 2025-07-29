@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Redaguoti darbuotoją</h2>
+
+  <form method="POST">
+    <table>
+      <tr>
+        <td><label for="vardas">Vardas:</label></td>
+        <td><input type="text" id="vardas" name="vardas" value="{{ darbuotojas.vardas }}" required></td>
+      </tr>
+      <tr>
+        <td><label for="pavarde">Pavardė:</label></td>
+        <td><input type="text" id="pavarde" name="pavarde" value="{{ darbuotojas.pavarde }}" required></td>
+      </tr>
+      <tr>
+        <td><label for="pareigos">Pareigos:</label></td>
+        <td><input type="text" id="pareigos" name="pareigos" value="{{ darbuotojas.pareigos }}" required></td>
+      </tr>
+      <tr>
+        <td><label for="darboviete_id">Darbovietė:</label></td>
+        <td>
+          <select name="darboviete_id" id="darboviete_id">
+            {% for d in darbovietes %}
+              <option value="{{ d.id }}" {% if d.id == darbuotojas.darboviete_id %} selected {% endif %}>
+              {{ d.pavadinimas }} ({{ d.miestas }})
+              </option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: right;">
+          <button type="submit">Atnaujinti</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}

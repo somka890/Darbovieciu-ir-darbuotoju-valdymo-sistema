@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Pridėti darbuotoją</h2>
+
+  <form method="POST">
+    <table>
+      <tr>
+        <td><label for="vardas">Vardas:</label></td>
+        <td><input type="text" id="vardas" name="vardas" required></td>
+      </tr>
+      <tr>
+        <td><label for="pavarde">Pavardė:</label></td>
+        <td><input type="text" id="pavarde" name="pavarde" required></td>
+      </tr>
+      <tr>
+        <td><label for="pareigos">Pareigos:</label></td>
+        <td><input type="text" id="pareigos" name="pareigos" required></td>
+      </tr>
+      <tr>
+        <td><label for="darboviete_id">Darbovietė:</label></td>
+        <td>
+          <select name="darboviete_id" id="darboviete_id" required>
+            <option value="" disabled selected>Pasirinkite darbovietę</option>
+            {% for d in darbovietes %}
+              <option value="{{ d.id }}">{{ d.pavadinimas }} ({{ d.miestas }})</option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: right;">
+          <button type="submit">Pridėti</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}

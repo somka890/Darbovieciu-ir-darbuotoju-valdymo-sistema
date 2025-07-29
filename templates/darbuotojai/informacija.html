@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Darbuotojo informacija</h2>
+
+  <p><strong>Vardas:</strong> {{ darbuotojas.vardas }}</p>
+  <p><strong>Pavardė:</strong> {{ darbuotojas.pavarde }}</p>
+  <p><strong>Pareigos:</strong> {{ darbuotojas.pareigos }}</p>
+  <p><strong>Darbovietė:</strong> {{ darbuotojas.darboviete.pavadinimas }} ({{ darbuotojas.darboviete.miestas }})</p>
+
+  <a href="{{ url_for('routes.darbuotojai') }}" class="main-button">Grįžti į sąrašą</a>
+
+
+
+
+{% endblock %}

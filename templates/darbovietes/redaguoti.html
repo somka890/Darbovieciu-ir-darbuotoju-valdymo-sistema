@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Redaguoti darbovietę</h2>
+
+  <form method="POST">
+    <table>
+      <tr>
+        <td><label for="pavadinimas">Pavadinimas:</label></td>
+        <td>
+          <input type="text" id="pavadinimas" name="pavadinimas" value="{{ darboviete.pavadinimas }}" required>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="miestas">Miestas:</label></td>
+        <td>
+          <input type="text" id="miestas" name="miestas" value="{{ darboviete.miestas }}" required>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="darbuotoju_skaicius">Darbuotojų skaičius:</label></td>
+        <td>
+          <input type="number" id="darbuotoju_skaicius" name="darbuotoju_skaicius" value="{{ darboviete.darbuotoju_skaicius }}">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align: right;">
+          <button type="submit">Atnaujinti</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}

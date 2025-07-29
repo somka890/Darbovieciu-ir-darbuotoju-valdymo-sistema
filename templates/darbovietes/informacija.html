@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Darbovietės informacija</h2>
+
+  <p><strong>Pavadinimas:</strong> {{ darboviete.pavadinimas }}</p>
+  <p><strong>Miestas:</strong> {{ darboviete.miestas }}</p>
+  <p><strong>Darbuotojų skaičius:</strong> {{ darboviete.darbuotoju_skaicius }}</p>
+
+  <h3>Darbuotojai šioje darbovietėje:</h3>
+  {% if darboviete.darbuotojai %}
+    <table>
+      <tr>
+        <th>Vardas</th>
+        <th>Pavardė</th>
+        <th>Pareigos</th>
+      </tr>
+      {% for d in darboviete.darbuotojai %}
+      <tr>
+        <td>{{ d.vardas }}</td>
+        <td>{{ d.pavarde }}</td>
+        <td>{{ d.pareigos }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <p><strong>Iš viso darbuotojų:</strong> {{ darboviete.darbuotojai|length }}</p>
+  {% else %}
+    <p>Šioje darbovietėje nėra darbuotojų.</p>
+  {% endif %}
+
+  <a href="{{ url_for("routes.darbovietes") }}" class="main-button">Grįžti į sąrašą</a>
+{% endblock %}

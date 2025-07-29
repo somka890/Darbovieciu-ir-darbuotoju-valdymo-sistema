@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Darboviečių sąrašas</h1>
+
+  <a class="btn-green" href="{{ url_for("routes.prideti_darboviete") }}">+ Pridėti naują darbovietę</a>
+
+  <table border="1">
+      <tr>
+          <th>ID</th>
+          <th>Pavadinimas</th>
+          <th>Miestas</th>
+          <th>Darbuotojų skaičius</th>
+      </tr>
+      {% for d in darbovietes %}
+      <tr>
+          <td>{{ d.id }}</td>
+          <td>{{ d.pavadinimas }}</td>
+          <td>{{ d.miestas }}</td>
+          <td>{{ d.darbuotoju_skaicius }}</td>
+          <td>
+              <div class="button-wrapper">
+                  <a href="{{ url_for("routes.darboviete_detale", id=d.id) }}" class="table-button green">Peržiūra</a>
+                  <a href="{{ url_for("routes.redaguoti_darboviete", id=d.id) }}" class="table-button blue">Redaguoti</a>
+                  <a href="{{ url_for("routes.trinti_darboviete", id=d.id) }}" class="table-button red">Trinti</a>
+              </div>
+         </td>
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

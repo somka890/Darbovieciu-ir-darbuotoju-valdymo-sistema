@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 class="page-title">Darboviečių ir darbuotojų valdymo sistema</h2>
+
+  <div class="button-group">
+    <a href="{{ url_for("routes.darbovietes") }}" class="main-button">Darbovietės</a>
+    <a href="{{ url_for("routes.darbuotojai") }}" class="main-button">Darbuotojai</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Ištrinti darbuotoją</h2>
+
+  <p>Ar tikrai nori ištrinti darbuotoją <strong>{{ darbuotojas.vardas }} {{ darbuotojas.pavarde }}</strong>?</p>
+
+  <form method="POST">
+    <button type="submit">Taip, ištrinti</button>
+    <a href="{{ url_for("routes.darbuotojai") }}">Atšaukti</a>
+  </form>
+{% endblock %}
